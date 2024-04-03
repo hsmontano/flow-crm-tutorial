@@ -1,8 +1,12 @@
 package com.example.application.views.list;
 
+import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -24,6 +28,13 @@ public class ListView extends VerticalLayout {
         add(header);
         add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
 
+        Button button = new Button("I'm a Button");
+        HorizontalLayout lHorizontalLayout = new HorizontalLayout(button, new DatePicker("Pick a date")); 
+        lHorizontalLayout.setDefaultVerticalComponentAlignment(Alignment.END);
+        add(lHorizontalLayout);
+
+        button.addClickListener(clickEvent -> add(new Text("Clicked!")));
+        
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
